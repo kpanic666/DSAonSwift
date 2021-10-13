@@ -104,6 +104,66 @@ struct DoublyLinkedList {
         count -= 1
     }
     
+    mutating func removeFirst() {
+        guard !isEmpty else { return }
+        
+        if let nextHead = head.next {
+            nextHead.prev = nil
+            head = nextHead
+        } else {
+            head.value = nil
+        }
+        
+        count -= 1
+    }
+    
+    mutating func removeAtIndex(_ index: Int) {
+        guard index >= 0 && index < count else { return }
+        
+        if index == 0 {
+            removeFirst()
+            return
+        }
+        
+        if index == count - 1 {
+            removeLast()
+            return
+        }
+        
+        var trav: Node? = head
+        
+        for _ in 0 ..< index {
+            trav = trav?.next
+        }
+        
+        guard let unwrappedTrav = trav else { return }
+        
+        unwrappedTrav.prev?.next = unwrappedTrav.next
+        unwrappedTrav.next?.prev = unwrappedTrav.prev
+        
+        count -= 1
+    }
+    
+    func indexOf(_ elem: Int?) -> Int? {
+        var result: Int?
+        var trav: Node = head
+        
+        guard count > 0 else { return result }
+        
+        for i in 0 ..< count {
+            if trav.value == elem {
+                result = i
+                break
+            }
+            
+            if let utrav = trav.next {
+                trav = utrav
+            }
+        }
+        
+        return result
+    }
+    
     mutating func clear() {
         guard !isEmpty else { return }
         
