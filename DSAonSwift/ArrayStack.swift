@@ -7,14 +7,8 @@
 
 import Foundation
 
-struct ArrayStack<Element> {
-    private var arr: [Element]
-    var count: Int {
-        arr.count
-    }
-    var isEmpty: Bool {
-        arr.isEmpty
-    }
+struct ArrayStack<Element>: DSArrayBased {
+    var arr: [Element]
     
     init() {
         arr = []
@@ -24,25 +18,27 @@ struct ArrayStack<Element> {
         arr = [element]
     }
     
-    init(_ s: [Element]) {
-        arr = s
+    init(from elements: [Item]) {
+        self.arr = elements
     }
     
     mutating func push(_ elem: Element) {
         arr.append(elem)
     }
     
-    mutating func pop() -> Element? {
-        arr.popLast()
+    mutating func pop() throws -> Element? {
+        if !isEmpty {
+            return arr.popLast()
+        } else {
+            throw DSArrayError.emptyArray
+        }
     }
     
-    func peek() -> Element? {
-        arr.last
-    }
-}
-
-extension ArrayStack: CustomStringConvertible {
-    var description: String {
-        String(describing: arr)
+    func peek() throws -> Element? {
+        if !isEmpty {
+            return arr.last
+        } else {
+            throw DSArrayError.emptyArray
+        }
     }
 }
