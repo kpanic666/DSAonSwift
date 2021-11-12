@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E97BF3DD271D5EF100A734CB /* ArrayStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97BF3DC271D5EF100A734CB /* ArrayStack.swift */; };
+		E9B1AEF9273E8B2900A86138 /* SinglyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B1AEF8273E8B2900A86138 /* SinglyLinkedList.swift */; };
 		E9C2BFC8273BAFB200B12458 /* ArrayQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C2BFC7273BAFB200B12458 /* ArrayQueue.swift */; };
 		E9C2BFCA273BBF4900B12458 /* ArrayGeneral.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C2BFC9273BBF4900B12458 /* ArrayGeneral.swift */; };
 		E9DEC1E827156FE100D4EB62 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DEC1E727156FE100D4EB62 /* main.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		E97BF3DC271D5EF100A734CB /* ArrayStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayStack.swift; sourceTree = "<group>"; };
+		E9B1AEF8273E8B2900A86138 /* SinglyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedList.swift; sourceTree = "<group>"; };
 		E9C2BFC7273BAFB200B12458 /* ArrayQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayQueue.swift; sourceTree = "<group>"; };
 		E9C2BFC9273BBF4900B12458 /* ArrayGeneral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayGeneral.swift; sourceTree = "<group>"; };
 		E9DEC1E427156FE100D4EB62 /* DSAonSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DSAonSwift; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +69,7 @@
 			children = (
 				E9DEC1E727156FE100D4EB62 /* main.swift */,
 				E9DEC1EC2715715B00D4EB62 /* DoublyLinkedList.swift */,
+				E9B1AEF8273E8B2900A86138 /* SinglyLinkedList.swift */,
 				E97BF3DC271D5EF100A734CB /* ArrayStack.swift */,
 				E9C2BFC7273BAFB200B12458 /* ArrayQueue.swift */,
 				E9C2BFC9273BBF4900B12458 /* ArrayGeneral.swift */,
@@ -102,7 +105,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					E9DEC1E327156FE100D4EB62 = {
 						CreatedOnToolsVersion = 13.0;
@@ -132,6 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9B1AEF9273E8B2900A86138 /* SinglyLinkedList.swift in Sources */,
 				E9DEC1E827156FE100D4EB62 /* main.swift in Sources */,
 				E97BF3DD271D5EF100A734CB /* ArrayStack.swift in Sources */,
 				E9DEC1ED2715715B00D4EB62 /* DoublyLinkedList.swift in Sources */,
@@ -146,12 +150,68 @@
 		E9DEC1DE27156E9B00D4EB62 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
 		E9DEC1DF27156E9B00D4EB62 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 			};
 			name = Release;
 		};
@@ -188,10 +248,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 7HTXC9RPV9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -254,10 +315,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 7HTXC9RPV9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

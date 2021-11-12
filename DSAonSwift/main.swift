@@ -7,29 +7,25 @@
 
 import Foundation
 
-var queue = ArrayQueue<Int?>()
-queue.enque(5)
-queue.enque(nil)
-queue.enque(10)
-queue.enque(15)
-print(queue)
+var list = SinglyLinkedList()
+list.append(7)
+list.append(8)
+list.append(9999999999)
+print(list)
 
-//print(queue.isEmpty)
-//print(queue.count)
-//
-//do {
-//    try queue.deque()
-//    print("deque - \(try queue.deque())")
-//
-//    print(queue)
-//    try queue.deque()
-//    try queue.deque()
-//} catch DSArrayError.emptyArray {
-//    print("Trying to deque empty queue.")
-//}
-//
-//print(queue)
-//queue.count = 5
-//print(queue.count)
-//queue.isEmpty = false
-//print(queue.isEmpty)
+list.addAtIndex(0, value: 6)
+list.addFirst(-1)
+print(list)
+
+list.removeAtIndex(2)
+print(list.indexOf(8))
+print(list.indexOf(10))
+print(list)
+list.clear()
+print(list)
+list.append(7)
+list.append(8)
+list.append(9999999999)
+list.removeLast()
+list.removeFirst()
+print(list)

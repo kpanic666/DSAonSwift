@@ -1,13 +1,13 @@
 //
-//  DoublyLinkedList.swift
+//  SinglyLinkedList.swift
 //  DSAonSwift
 //
-//  Created by Andrei Korikov on 12.10.2021.
+//  Created by Andrei Korikov on 12.11.2021.
 //
 
 import Foundation
 
-struct DoublyLinkedList {
+struct SinglyLinkedList {
     private(set) var count = 0
     private var head: Node
     private var tail: Node
@@ -17,15 +17,13 @@ struct DoublyLinkedList {
     }
     
     class Node {
-        var prev: Node?
         var next: Node?
         var value: Int?
         
         init() {
         }
         
-        init(prev: Node?, next: Node?, value: Int) {
-            self.prev = prev
+        init(next: Node?, value: Int) {
             self.next = next
             self.value = value
         }
@@ -38,10 +36,10 @@ struct DoublyLinkedList {
     
     private mutating func addLast(_ elem: Int) {
         if isEmpty {
-            head = Node(prev: nil, next: nil, value: elem)
+            head = Node(next: nil, value: elem)
             tail = head
         } else {
-            tail.next = Node(prev: tail, next: nil, value: elem)
+            tail.next = Node(next: nil, value: elem)
             tail = tail.next!
         }
         
@@ -54,11 +52,10 @@ struct DoublyLinkedList {
     
     mutating func addFirst(_ elem: Int) {
         if isEmpty {
-            head = Node(prev: nil, next: nil, value: elem)
+            head = Node(next: nil, value: elem)
             tail = head
         } else {
-            head.prev = Node(prev: nil, next: head, value: elem)
-            head = head.prev!
+            head = Node(next: head, value: elem)
         }
         count += 1
     }
@@ -84,21 +81,30 @@ struct DoublyLinkedList {
         
         guard let unwrappedTrav = trav else { return }
         
-        let newNode = Node(prev: unwrappedTrav, next: unwrappedTrav.next, value: elem)
+        let newNode = Node(next: unwrappedTrav.next, value: elem)
         unwrappedTrav.next = newNode
-        newNode.next?.prev = newNode
         
         count += 1
     }
     
     mutating func removeLast() {
+        // complexity is O(n) because to delete any element (q-element) except the first we need to traverse to
+        // q-1 element to nil the "next" pointer
         guard !isEmpty else { return }
         
-        if let prevTail = tail.prev {
-            prevTail.next = nil
-            tail = prevTail
+        var trav: Node? = head
+        
+        if count == 1 {
+            trav?.value = nil
         } else {
-            tail.value = nil
+            for _ in 1 ..< (count - 1) {
+                trav = trav?.next
+            }
+            
+            if let trav = trav {
+                trav.next = nil
+                tail = trav
+            }
         }
 
         count -= 1
@@ -108,7 +114,6 @@ struct DoublyLinkedList {
         guard !isEmpty else { return }
         
         if let nextHead = head.next {
-            nextHead.prev = nil
             head = nextHead
         } else {
             head.value = nil
@@ -131,29 +136,27 @@ struct DoublyLinkedList {
         }
         
         var trav: Node? = head
+        var prev: Node?
         
         for _ in 0 ..< index {
+            prev = trav
             trav = trav?.next
         }
         
-        guard let unwrappedTrav = trav else { return }
+        guard let trav = trav, let prev = prev else { return }
         
-        unwrappedTrav.prev?.next = unwrappedTrav.next
-        unwrappedTrav.next?.prev = unwrappedTrav.prev
-        
+        prev.next = trav.next
         count -= 1
     }
     
-    func indexOf(_ elem: Int?) -> Int? {
-        var result: Int?
+    func indexOf(_ elem: Int) -> Int? {
         var trav: Node = head
         
-        guard count > 0 else { return result }
+        guard count > 0 else { return nil }
         
         for i in 0 ..< count {
             if trav.value == elem {
-                result = i
-                break
+                return i
             }
             
             if let utrav = trav.next {
@@ -161,38 +164,40 @@ struct DoublyLinkedList {
             }
         }
         
-        return result
+        return nil
     }
     
     mutating func clear() {
         guard !isEmpty else { return }
         
-        var trav: Node? = tail
+        head.value = nil
+        tail = head
+        count = 0
+        
+        var trav: Node? = head
+        var travNext: Node?
         
         while trav != nil {
+            travNext = trav?.next
             trav?.next = nil
-            trav = trav?.prev
+            trav = travNext
         }
-        
-        tail = head
-        head.next = nil
-        head.value = nil
-        count = 0
     }
 }
 
-extension DoublyLinkedList: CustomStringConvertible {
+extension SinglyLinkedList: CustomStringConvertible {
     var description: String {
         var trav: Node? = head
         var values = [Int]()
-
+        
         while trav != nil {
             if let value = trav?.value {
                 values.append(value)
             }
             trav = trav!.next
         }
-
+        
         return String(describing: values)
     }
 }
+

@@ -26,17 +26,17 @@ struct ArrayStack<Element>: DSArrayBased {
         arr.append(elem)
     }
     
-    mutating func pop() throws -> Element? {
+    mutating func pop() throws -> Element {
         if !isEmpty {
-            return arr.popLast()
+            return arr.removeLast()
         } else {
             throw DSArrayError.emptyArray
         }
     }
     
-    func peek() throws -> Element? {
+    func peek() throws -> Element {
         if !isEmpty {
-            return arr.last
+            return arr.last!
         } else {
             throw DSArrayError.emptyArray
         }
