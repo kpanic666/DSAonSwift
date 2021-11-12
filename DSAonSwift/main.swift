@@ -7,7 +7,7 @@
 
 import Foundation
 
-var list = SinglyLinkedList()
+var list = SinglyLinkedList<Int>()
 list.append(7)
 list.append(8)
 list.append(9999999999)

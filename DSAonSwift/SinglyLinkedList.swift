@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SinglyLinkedList {
+struct SinglyLinkedList<T: Equatable> {
     private(set) var count = 0
     private var head: Node
     private var tail: Node
@@ -18,12 +18,12 @@ struct SinglyLinkedList {
     
     class Node {
         var next: Node?
-        var value: Int?
+        var value: T?
         
         init() {
         }
         
-        init(next: Node?, value: Int) {
+        init(next: Node?, value: T) {
             self.next = next
             self.value = value
         }
@@ -34,7 +34,7 @@ struct SinglyLinkedList {
         tail = head
     }
     
-    private mutating func addLast(_ elem: Int) {
+    private mutating func addLast(_ elem: T) {
         if isEmpty {
             head = Node(next: nil, value: elem)
             tail = head
@@ -46,11 +46,11 @@ struct SinglyLinkedList {
         count += 1
     }
     
-    mutating func append(_ elem: Int) {
+    mutating func append(_ elem: T) {
         addLast(elem)
     }
     
-    mutating func addFirst(_ elem: Int) {
+    mutating func addFirst(_ elem: T) {
         if isEmpty {
             head = Node(next: nil, value: elem)
             tail = head
@@ -60,7 +60,7 @@ struct SinglyLinkedList {
         count += 1
     }
     
-    mutating func addAtIndex(_ index: Int, value elem: Int) {
+    mutating func addAtIndex(_ index: Int, value elem: T) {
         guard index >= 0 && index <= count else { return }
         
         if index == 0 {
@@ -149,7 +149,7 @@ struct SinglyLinkedList {
         count -= 1
     }
     
-    func indexOf(_ elem: Int) -> Int? {
+    func indexOf(_ elem: T) -> Int? {
         var trav: Node = head
         
         guard count > 0 else { return nil }
@@ -188,7 +188,7 @@ struct SinglyLinkedList {
 extension SinglyLinkedList: CustomStringConvertible {
     var description: String {
         var trav: Node? = head
-        var values = [Int]()
+        var values = [T]()
         
         while trav != nil {
             if let value = trav?.value {
